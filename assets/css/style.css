@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#47a1d5+0,85d5ec+32,54c6eb+53,9ce9fe+71,54c6eb+100 */
+	background: rgb(71,161,213); /* Old browsers */
+background: -webkit-linear-gradient(bottom left, rgba(71,161,213,1) 0%, rgba(133,213,236,1) 32%, rgba(84,198,235,1) 53%, rgba(156,233,254,1) 71%, rgba(84,198,235,1) 100%);
+background: -o-linear-gradient(bottom left, rgba(71,161,213,1) 0%, rgba(133,213,236,1) 32%, rgba(84,198,235,1) 53%, rgba(156,233,254,1) 71%, rgba(84,198,235,1) 100%);
+background: linear-gradient(to top right, rgba(71,161,213,1) 0%, rgba(133,213,236,1) 32%, rgba(84,198,235,1) 53%, rgba(156,233,254,1) 71%, rgba(84,198,235,1) 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', endColorstr='#54c6eb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.area {
+	background-color: rgba(255, 255, 255, .5);
+	height: 500px;
+}
+#title {
+	font-family: 'Bangers', cursive;
+	font-size: 70px;
+	text-align: center;
+}
+#startButton {
+	display: block;
+	margin: 150px;
+	font-family: 'Bangers', cursive;
+	font-size: 50px;
+	
+}
+.guessButton {
+	display: block;
+	margin: 5px 200px;
+	font-family: 'Bangers', cursive;
+	font-size: 30px;
+	padding: 10px;
+}
+.content {
+	height: 600px;
+}
+#timeRemaining {
+	margin-top: 30px;
+	text-align: center;
+}
+#triviaQuestion {
+	display: block;
+	margin: 20px;
+}
+.btn22 {
+	font-size: 30px;
+	padding: 20px 80px;
+}
+

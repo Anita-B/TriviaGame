@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>Trivia Game - Javascript Timer and jQuery</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+	<script src="assets/javascript/app2a.js"></script>
+	
+</head>
+
+<body>
+	<div class="container-fluid">
+
+			<!-- title -->
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8" id="title">DC Super Hero Girls Trivia!</div>
+				<div class="col-md-2"></div>
+			</div>
+			<!-- end title -->
+
+
+			<!-- start page -->
+			<div id="startPage" class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 area" id="start">
+					<a href="#" id="startButton" class="btn btn-success center-block" role="button">Start</a>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<!-- end start page -->
+
+
+			<!-- content area -->
+			<div id="content" class="row">
+
+				<div class="col-md-2"></div>
+
+				<div class="col-md-8 area">
+
+					<div id="timeRemaining" class="row"><h2>Time Remaining: <span id="countdown"></span></h2></div>
+
+					<!-- question answer area -->
+					<div id="QA"></div>
+
+				</div>
+
+				<div class="col-md-2"></div>
+			</div>
+			<!-- end content area -->
+
+
+
+
+			<!-- question area -->
+			<div id="questionPage">
+				<div id="triviaQuestion" class="row"></div>
+
+				<div id="triviaChoice1" class="row">
+					<a href="#" id="answer1" class="btn btn-warning center-block guessButton" role="button"></a>
+				</div>
+
+				<div id="triviaChoice2" class="row">
+					<a href="#" id="answer2" class="btn btn-warning center-block guessButton" role="button"></a>
+				</div>
+
+				<div id="triviaChoice3" class="row">
+					<a href="#" id="answer3" class="btn btn-warning center-block guessButton" role="button"></a>
+				</div>
+				
+				<div id="triviaChoice4" class="row">
+					<a href="#" id="answer4" class="btn btn-warning center-block guessButton" role="button"></a>
+				</div>
+			</div>
+			<!-- end question area -->
+
+			<!-- answer area -->
+			<div id="answerPage">
+				<div id="triviaResult" class="row"></div>
+
+				<div id="triviaAnswer" class="row"></div>
+
+				<div id="triviaImage" class="row"></div>
+			</div>
+			<!-- end answer area -->
+
+			<!-- score area -->
+			<div id="scorePage">
+				<div id="ScoreResult" class="row">All done, here's how you did!</div>
+
+				<div id="correctAnswer" class="row"></div>
+
+				<div id="incorrectAnswer" class="row"></div>
+
+				<div id="unanswered" class="row"></div>
+			</div>
+			<!-- end score area -->
+
+
+
+	</div>
+</body>
+
+</html>
