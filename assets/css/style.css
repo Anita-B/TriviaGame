@@ -21,7 +21,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', end
 	margin: 150px;
 	font-family: 'Bangers', cursive;
 	font-size: 50px;
-	
+}
+#startOverButton {
+	display: block;
+	margin: 50px 150px;
+	font-family: 'Bangers', cursive;
+	font-size: 50px;	
 }
 .guessButton {
 	display: block;
@@ -39,7 +44,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', end
 }
 #triviaQuestion {
 	display: block;
+	text-align: center;
 	margin: 20px;
+}
+#ScoreResult {
+	margin: 30px 0;
+	font-family: 'Bangers', cursive;
+	text-align: center;
+	font-size: 25px;
+}
+#triviaResult, #triviaAnswer, #correctAnswer, #incorrectAnswer, #unanswered {
+	text-align: center;
+	font-size: 25px;
+}
+img {
+	width: 200px;
+	display: block;
+    margin: 30px auto;
 }
 .btn22 {
 	font-size: 30px;

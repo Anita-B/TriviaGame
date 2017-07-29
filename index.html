@@ -61,8 +61,10 @@
 			</div>
 			<!-- end content area -->
 
-
-
+			<!-- hold divs temporarily -->
+			<div id="questionHolder"></div>
+			<div id="answerHolder"></div>
+			<!-- end hold divs -->
 
 			<!-- question area -->
 			<div id="questionPage">
@@ -89,9 +91,7 @@
 			<!-- answer area -->
 			<div id="answerPage">
 				<div id="triviaResult" class="row"></div>
-
 				<div id="triviaAnswer" class="row"></div>
-
 				<div id="triviaImage" class="row"></div>
 			</div>
 			<!-- end answer area -->
@@ -99,12 +99,12 @@
 			<!-- score area -->
 			<div id="scorePage">
 				<div id="ScoreResult" class="row">All done, here's how you did!</div>
-
 				<div id="correctAnswer" class="row"></div>
-
 				<div id="incorrectAnswer" class="row"></div>
-
 				<div id="unanswered" class="row"></div>
+				<div>
+					<a href="#" id="startOverButton" class="btn btn-success center-block" role="button">Start Over?</a>
+				</div>	
 			</div>
 			<!-- end score area -->
 

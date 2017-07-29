@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 // Make our variables global to the runtime of our application
 //  Set our number counter to 20.
-var seconds = 5;
+var seconds = 15;
 //  Variable that will hold our interval ID when we execute
 //  the "run" function
 var intervalId;
@@ -54,7 +54,7 @@ var harley_quinn = {
 var hawkgirl = {
 	"name": "Hawkgirl",
 	"image": "hawkgirl.png",
-	"question": "Owes her powers to a belt of Nth metal, a substance native to the planet Thanagar. It grants the power of flight, superhuman strength, super-acute vision, and an enhanced healing/regeneration ability",
+	"question": "Owes her powers to a belt of Nth metal. It grants the power of flight, superhuman strength, super-acute vision, and an enhanced healing/regeneration ability",
 	"answer1": "Hawkgirl",
 	"answer2": "Katana",
 	"answer3": "Starfire",
@@ -69,7 +69,7 @@ var katana = {
 	"answer2": "Sakana",
 	"answer3": "Oracle",
 	"answer4": "George",
-	"correct": "Katana"
+	"correct": "Soultaker"
 }
 var poison_ivy = {
 	"name": "Poison Ivy",
@@ -89,7 +89,7 @@ var starfire = {
 	"answer2": "Starfire",
 	"answer3": "Bumblebee",
 	"answer4": "Harley Quinn",
-	"correct": "Poison Ivy"
+	"correct": "Starfire"
 }
 var supergirl = {
 	"name": "Supergirl",
@@ -126,7 +126,7 @@ var convertStringtoVariable = {
 
 
 // The setupGame method is called when the page first loads.
-function setupGame() { 
+function setupGame() { console.log("in setupGame");
 
 	//console.log("here setupGame");
 
@@ -140,7 +140,7 @@ function setupGame() {
 
 
 //  The decrement function.
-function decrement() { //console.log("here");
+function decrement() { console.log("in decrement");
 
     //  Decrease number by one.
     seconds--;
@@ -159,74 +159,64 @@ function decrement() { //console.log("here");
 }
 
 //  The stop function
-function stop(userInput) {
-
-	//console.log("in stop " + userInput);
+function stop(userInput) { console.log("in stop ");
 
     //  Clears our intervalId
     //  We just pass the name of the interval
     //  to the clearInterval function.
-    //console.log("before clear" + intervalId);
-    clearInterval(intervalId); //CHANGE BACK 
-    //console.log("intervalId in stop" + intervalId );
-    //console.log("after clear" + intervalId);
+    clearInterval(intervalId); 
 
-    //$("#QA").empty();
-    //$("#questionPage").hide();
-	//$("#content").show();
-	$("#answerPage, #triviaResult, #triviaAnswer, #triviaImage").show();
-	//$("#questionPage, #triviaQuestion, #triviaChoice1, #triviaChoice2, #triviaChoice3, #triviaChoice4").hide();
-	$("#content, #timeRemaining, #QA").show();
+
+	$("#questionHolder").html( $("#questionPage") );
+	$("#questionHolder").hide();
+
 	$("#QA").html( $("#answerPage") ); //append an object #answerPage
-	//$("#answerPage").show();
 
-
-	//$("#content, #timeRemaining, #QA, #questionPage").show();
 
 
     // call next slide
   	switch (userInput) {
     case "outOfTime": //console.log("in case outOfTime");
-    	$("#triviaResult").append("Out of time!");
+    	$("#triviaResult").html("Out of time!");
     	unanswered++;
         break;
     case "answer1":
         if (convertStringtoVariable[slideNum].answer1 === convertStringtoVariable[slideNum].correct){
-        	$("#triviaResult").append("Correct!");
+        	$("#triviaResult").html("Correct!");
         	correctAnswers++;
         }
         else {
-        	$("#triviaResult").append("Nope!");
+        	$("#triviaResult").html("Nope!");
         	incorrectAnswers++;
         }
         break;
     case "answer2":
       	if (convertStringtoVariable[slideNum].answer2 === convertStringtoVariable[slideNum].correct){
-        	$("#triviaResult").append("Correct!");
+        	$("#triviaResult").html("Correct!");
         	correctAnswers++;
         }
         else {
-        	$("#triviaResult").append("Nope!");
+        	$("#triviaResult").html("Nope!");
         	incorrectAnswers++;
         }
         break;
     case "answer3":
     	if (convertStringtoVariable[slideNum].answer3 === convertStringtoVariable[slideNum].correct){
-        	$("#triviaResult").append("Correct!");
+        	$("#triviaResult").html("Correct!");
         	correctAnswers++;
         }
         else {
-        	$("#triviaResult").append("Nope!");
+        	$("#triviaResult").html("Nope!");
         	incorrectAnswers++;
         }
         break;
     case "answer4":
     	if (convertStringtoVariable[slideNum].answer4 === convertStringtoVariable[slideNum].correct){
-        	$("#triviaResult").append("Correct!");
+        	$("#triviaResult").html("Correct!");
         	correctAnswers++;
         }
         else {
-        	$("#triviaResult").append("Nope!");
+        	$("#triviaResult").html("Nope!");
         	incorrectAnswers++;
         }
         break;            
@@ -234,18 +224,22 @@ function stop(userInput) {
         
 	}
 
-	$("#triviaAnswer").append("The answer was " + convertStringtoVariable[slideNum].correct);
-    $("#triviaImage").append("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\">");
-    //console.log("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\">");
-    
+	$("#triviaAnswer").html("The answer was " + convertStringtoVariable[slideNum].correct);
+    $("#triviaImage").html("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\" width=\"250px\" \">");
+    console.log("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\" width=\"250px\" \">");
+
+
+	$("#answerPage").show();
+
+
     if (slideNum === 9){
-    	displayScore();
+    	setTimeout(displayScore, 2000);
     }
     else { console.log("in else");
     	slideNum++; console.log(slideNum);
+    	seconds = 15;
     	setTimeout(displayTrivia, 2000);
     }
-    
 
 }
 
@@ -253,99 +247,87 @@ function stop(userInput) {
 
 function displayTrivia() { console.log("in displayTrivia");
 
-	$("#startPage").hide();
-	//$("#answerPage, #triviaResult, #triviaAnswer, #triviaImage").hide();
+
+	if (slideNum === 0){
+	 	$("#startPage").hide();
+    	$("#content").show();
+    }
+
+    $("#answerHolder").html( $("#answerPage") );
+	$("#answerHolder").hide();
 	
-	$("#content, #timeRemaining, #QA").show();
-	$("#questionPage, #triviaQuestion, #triviaChoice1, #triviaChoice2, #triviaChoice3, #triviaChoice4").show();
+	$("#QA").html( $("#questionPage") ); //append an object #questionPage
+
 	
-	//$("#answerPage").hide();
 
 	//display questions in order 
 	$("#triviaQuestion").html("<h4>" + convertStringtoVariable[slideNum].question + "</h4>");
+	console.log(slideNum, "  ", convertStringtoVariable[slideNum].question);	
 
 	//display possible answers
-	$("#answer1").html(convertStringtoVariable[slideNum].answer1);
+	$("#answer1").html(convertStringtoVariable[slideNum].answer1); 
 	$("#answer2").html(convertStringtoVariable[slideNum].answer2);
 	$("#answer3").html(convertStringtoVariable[slideNum].answer3);
 	$("#answer4").html(convertStringtoVariable[slideNum].answer4);
 
-	$("#QA").html( $("#questionPage") ); //append an object #questionPage
+	$("#questionPage").show();
 
-	intervalId = setInterval(decrement, 1000); //CHANGE BACK
-	//console.log("intervalId in displayTrivia" + intervalId );
+	intervalId = setInterval(decrement, 1000); 
  		
 }
 
 
 function displayScore() {
 
-	$("#correctAnswer").html(correctAnswers);
-	$("#incorrectAnswer").html(incorrectAnswers);
-	$("#unanswered").html(unanswered);
 	$("#QA").html( $("#scorePage") );
+
+	$("#correctAnswer").html("Correct answers: " + correctAnswers);
+	$("#incorrectAnswer").html("Incorrect answers: " + incorrectAnswers);
+	$("#unanswered").html("Unanswered: " + unanswered);
+
+	$("#scorePage").show();
 
 }
 
-
-	// nextImage: function() {
-	// 	// TODO: Increment the count by 1.
-	// 	count++;
-
-	//   	// TODO: Show the loading gif in the "image-holder" div.
-	// 	$("#image-holder").html("<img src=\"loading.gif\" width='400px'>");
-
-	// 	// TODO: Use a setTimeout to run displayImage after 1 second.
-	// 	setTimeout(displayImage, 1000);
-	// 	//displayImage();
-
-	// 	// TODO: If the count is the same as the length of the image array, reset the count to 0.
-	// 	if (count === images.length){
-	// 	count = 0;
-	//   	}
-	// },
-
-
-	// startSlideshow: function() {
-
-	// 	// TODO: Use showImage to hold the setInterval to run nextImage.
-	// 	showImage = setInterval(nextImage, 3000);
-	// }
-
-
+	// function calls
 	setupGame();
 
-
-	$("#startButton").on("click", function() { 
-
-		//console.log("Here in startButton " + slideNum);
+	// onclick events
+	$("#startButton").on("click", function() { console.log("in startButton");
 
 		//load first question
 		displayTrivia();
 
-		// start countdown
-		//intervalId = setInterval(decrement, 1000);
-
 	});
 
 
-	$("#answer1").on("click", function() {
+	$("#answer1").on("click", function() { console.log("in clicked answer1");
 	   stop("answer1");
 	});
 
 
-	$("#answer2").on("click", function() {//console.log("stop answer 2");
+	$("#answer2").on("click", function() { console.log("in clicked answer2");
 	   stop("answer2");
 	});
 
 
-	$("#answer3").on("click", function() {
+	$("#answer3").on("click", function() { console.log("in clicked answer3");
 	   stop("answer3");
 	});
 
 
-	$("#answer4").on("click", function() {
+	$("#answer4").on("click", function() { console.log("in clicked answer3");
 	   stop("answer4");	
+	});
+
+
+	$("#startOverButton").on("click", function() { 
+		seconds = 15;
+		slideNum = 0;
+		correctAnswers = 0;
+		incorrectAnswers = 0;
+		unanswered = 0;
+		displayTrivia();
 	});
 
 
