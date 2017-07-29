@@ -33,7 +33,7 @@ var bumblebee = {
 }
 var catwoman = {
 	"name": "Catwoman",
-	"image": "catwoman.png",
+	"image": "catwoman3.png",
 	"question": "A mysterious burglar and jewel thief",
 	"answer1": "Batgirl",
 	"answer2": "Harley Quinn",
@@ -142,11 +142,11 @@ function setupGame() { console.log("in setupGame");
 //  The decrement function.
 function decrement() { console.log("in decrement");
 
-    //  Decrease number by one.
-    seconds--;
-
     //  Show the number in the #countdown span tag.
     $("#countdown").html(seconds);
+
+    //  Decrease number by one.
+    seconds--;
 
 
     //  Once number hits zero...
@@ -173,8 +173,7 @@ function stop(userInput) { console.log("in stop ");
 	$("#QA").html( $("#answerPage") ); //append an object #answerPage
 
 
-
-    // call next slide
+    // tally answer or lack thereof
   	switch (userInput) {
     case "outOfTime": //console.log("in case outOfTime");
     	$("#triviaResult").html("Out of time!");
@@ -226,7 +225,7 @@ function stop(userInput) { console.log("in stop ");
 
 	$("#triviaAnswer").html("The answer was " + convertStringtoVariable[slideNum].correct);
     $("#triviaImage").html("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\" width=\"250px\" \">");
-    console.log("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\" width=\"250px\" \">");
+    //console.log("<img src=\"assets/images/" + convertStringtoVariable[slideNum].image + "\" alt=\"" + convertStringtoVariable[slideNum].name + "\" width=\"250px\" \">");
 
 
 	$("#answerPage").show();
@@ -278,6 +277,9 @@ function displayTrivia() { console.log("in displayTrivia");
 
 
 function displayScore() {
+
+	$("#answerHolder").html( $("#answerPage") );
+	$("#answerHolder").hide();
 
 	$("#QA").html( $("#scorePage") );
 

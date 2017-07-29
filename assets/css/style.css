@@ -9,12 +9,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', end
 }
 .area {
 	background-color: rgba(255, 255, 255, .5);
-	height: 500px;
+	height: 550px;
 }
 #title {
 	font-family: 'Bangers', cursive;
-	font-size: 70px;
+	font-size: 75px;
 	text-align: center;
+
+	-webkit-text-fill-color: transparent;
+	background: -webkit-linear-gradient(transparent, transparent),
+	             url(../images/glitter.gif) repeat;
+	background: -o-linear-gradient(transparent, transparent);
+	-webkit-background-clip: text;
+	-webkit-text-stroke: 1px magenta;
 }
 #startButton {
 	display: block;
@@ -33,7 +40,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', end
 	margin: 5px 200px;
 	font-family: 'Bangers', cursive;
 	font-size: 30px;
-	padding: 10px;
+	padding: 8px;
 }
 .content {
 	height: 600px;
@@ -58,7 +65,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a1d5', end
 	font-size: 25px;
 }
 img {
-	width: 200px;
 	display: block;
     margin: 30px auto;
 }
